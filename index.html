@@ -816,15 +816,22 @@
 
     <script>
         document.getElementById('emailButton').addEventListener('click', function() {
-      var email = 'vivek.sharma@credenc.com'; // Replace with your email address
-      var subject = encodeURIComponent('Subject of the email');
-      var body = encodeURIComponent('Body of the email');
+      var email = 'sharmavikku14@gmail.com'; // Replace with your email address
+      var subject = encodeURIComponent('Congratulations! you are hired');
+      var body = encodeURIComponent(
+        "Dear Vivek Sharma,\n Congratulations! I am delighted to inform you that you have been selected for the position of Senior Software Developer at [Company Name].\
+        \n\nWe were impressed by your experience and skills, and we believe you will be a valuable asset to our team. We look forward to working with you and seeing the contributions you will make.\
+        \n\nPlease feel free to reach out if you have any questions or need further information.\
+        \n\nWelcome aboard!\n\n\
+        Best regards,\
+        \n[Your Name]"
+      );
 
       var mailtoLink = 'mailto:' + email + '?subject=' + subject + '&body=' + body;
 
       window.location.href = mailtoLink;
-    //   window.open(mailtoLink, '_blank');
-      console.log(window.location.href)
+      window.open(mailtoLink, '_blank');
+    //   console.log(window.location.href)
     });
       </script>
 
