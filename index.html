@@ -817,17 +817,23 @@
     <script>
         document.getElementById('emailButton').addEventListener('click', function() {
       var email = 'sharmavikku14@gmail.com'; // Replace with your email address
-      var subject = encodeURIComponent('Congratulations! you are hired');
-      var body = encodeURIComponent(
+      var subject = 'Congratulations! you are hired';
+      var body = 
         "Dear Vivek Sharma,\n Congratulations! I am delighted to inform you that you have been selected for the position of Senior Software Developer at [Company Name].\n\nWe were impressed by your experience and skills, and we believe you will be a valuable asset to our team. We look forward to working with you and seeing the contributions you will make.\
         \n\nPlease feel free to reach out if you have any questions or need further information.\
-        \n\nWelcome aboard!\n\n\Best regards,\n[Your Name]"
-      );
+        \n\nWelcome aboard!\n\n\Best regards,\n[Your Name]";
 
-      var mailtoLink = 'https://mail.google.com/mail/?tf=cm&to=' + email + '&su=' + subject + '&body=' + body;
+      var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+    //   var mailtoLink = 'https://mail.google.com/mail/?tf=cm&to=' + email + '&su=' + subject + '&body=' + body;
     //   var mailtoLink = 'mailto:' + email + '?subject=' + subject + '&body=' + body;
     //   email@domain.example
-    
+    var mailtoLink;
+    if (isMobile) {
+        mailtoLink = 'mailto:' + email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    } else {
+        mailtoLink = 'https://mail.google.com/mail/?tf=cm&to=' + email + '&su=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+    }
       window.location.href = mailtoLink;
     //   window.open(mailtoLink, '_blank');
     //   console.log(window.location.href)
